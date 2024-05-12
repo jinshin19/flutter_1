@@ -23,9 +23,9 @@ class _MyWidgetState extends State<UserComponent> {
             child: GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, '/user', arguments: {
-                  'id': widget.data['id'],
-                  'name': widget.data['name'],
-                  'age': widget.data['age'],
+                  'id': widget.data['id'].toString(),
+                  'name': widget.data['name'].toString(),
+                  'age': widget.data['age'].toString(),
                 });
               },
               child: Row(
@@ -34,7 +34,7 @@ class _MyWidgetState extends State<UserComponent> {
                     flex: 1,
                     child: Center(
                       child: Text(
-                        widget.data['id'],
+                        widget.data['id'].toString(),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,

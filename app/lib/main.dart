@@ -1,3 +1,4 @@
+import 'package:app/pages/add.dart';
 import 'package:flutter/material.dart';
 import 'pages/index.dart';
 import 'pages/user.info.dart';
@@ -18,6 +19,7 @@ void main() {
             age: val['age'],
           );
         },
+        '/add': (context) => AddUserComponent(),
       },
     ),
   );

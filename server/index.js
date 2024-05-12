@@ -1,18 +1,14 @@
 const express = require("express");
 const cors = require("cors");
+const mysql = require("mysql2");
+const { ulid } = require("ulidx");
 
-const mock_data = [
-  {
-    id: "1",
-    name: "John Doe",
-    age: "24",
-  },
-  {
-    id: "2",
-    name: "Bruce Wayne",
-    age: "24",
-  },
-];
+const db = mysql.createConnection({
+  user: "root",
+  password: "localhost123@",
+  database: "flutter",
+  host: "localhost",
+});
 
 const app = express();
 app.listen(5000, () => console.log("Server is running"));
@@ -21,17 +17,28 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/users", (_, response) => {
-  return response.status(200).send({
-    data: mock_data,
+  db.query("select * from users", "", (err, result) => {
+    return response.status(200).send({
+      data: result,
+    });
   });
 });
 
-app.get("/users/:id", (request, response) => {
-  const { id } = request.params;
+app.post("/users", async (request, response) => {
+  const { name, age } = await request.body;
 
-  const user = mock_data.find((u) => u.id == id);
+  const values = [name, age];
 
-  return response.status(200).send({
-    data: user,
+  db.query(
+    "insert into users (name, age) values (?)",
+    [values],
+    (err, result) => {
+      console.log(err);
+      console.log(result);
+    }
+  );
+
+  return response.status(201).send({
+    data: [],
   });
 });

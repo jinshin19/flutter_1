@@ -55,7 +55,9 @@ class _MyWidgetState extends State<IndexComponent> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/add');
+        },
         backgroundColor: Color.fromARGB(255, 31, 167, 121),
         foregroundColor: Colors.white,
         child: Icon(

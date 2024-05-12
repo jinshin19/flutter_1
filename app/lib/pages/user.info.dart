@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class UserInfoComponent extends StatelessWidget {
-  final id;
-  final name;
-  final age;
-  const UserInfoComponent({this.id, this.name, this.age, Key? key})
+  final dynamic id;
+  final dynamic name;
+  final dynamic age;
+  const UserInfoComponent(
+      {required this.id, required this.name, required this.age, Key? key})
       : super(key: key);
 
   @override
@@ -36,7 +37,7 @@ class UserInfoComponent extends StatelessWidget {
               height: 5,
             ),
             Text(
-              id,
+              '$id',
               style: TextStyle(
                 color: Color.fromARGB(255, 31, 167, 121),
                 fontSize: 30,
@@ -76,7 +77,7 @@ class UserInfoComponent extends StatelessWidget {
               height: 5,
             ),
             Text(
-              age,
+              '$age',
               style: TextStyle(
                 color: Color.fromARGB(255, 31, 167, 121),
                 fontSize: 30,
