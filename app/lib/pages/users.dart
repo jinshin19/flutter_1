@@ -1,7 +1,7 @@
 class Users {
-  String id;
-  String name;
-  String age;
+  dynamic id;
+  dynamic name;
+  dynamic age;
 
-  Users({this.id = '', this.name = '', this.age = ''});
+  Users({this.id = 0, this.name = '', this.age = 0});
 }

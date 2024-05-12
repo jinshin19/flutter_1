@@ -54,6 +54,14 @@ class _MyWidgetState extends State<IndexComponent> {
           children: users.map((user) => UserComponent(data: user)).toList(),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Color.fromARGB(255, 31, 167, 121),
+        foregroundColor: Colors.white,
+        child: Icon(
+          Icons.add,
+        ),
+      ),
     );
   }
 }

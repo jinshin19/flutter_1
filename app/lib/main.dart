@@ -9,7 +9,15 @@ void main() {
       initialRoute: '',
       routes: {
         '/': (context) => IndexComponent(),
-        '/user': (context) => UserInfoComponent(),
+        '/user': (context) {
+          final val = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          return UserInfoComponent(
+            id: val['id'],
+            name: val['name'],
+            age: val['age'],
+          );
+        },
       },
     ),
   );

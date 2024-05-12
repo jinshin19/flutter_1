@@ -22,8 +22,11 @@ class _MyWidgetState extends State<UserComponent> {
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/user',
-                    arguments: '${widget.data['id']}');
+                Navigator.pushNamed(context, '/user', arguments: {
+                  'id': widget.data['id'],
+                  'name': widget.data['name'],
+                  'age': widget.data['age'],
+                });
               },
               child: Row(
                 children: [
